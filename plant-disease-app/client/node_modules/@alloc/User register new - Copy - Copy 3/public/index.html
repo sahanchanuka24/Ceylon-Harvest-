@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceylon Harverst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 20px;
+        }
+
+        .login-section {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .image-section {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .logo {
+            color: #26580F;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #26580F;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password a {
+            color: #26580F;
+            text-decoration: none;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            background-color: #26580F;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .register-text {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .register-link {
+            color: #26580F;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .social-login {
+            margin-bottom: 20px;
+        }
+
+        .social-button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .social-button img {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .expert-link {
+            text-align: center;
+        }
+
+        .expert-link a {
+            color: #26580F;
+            text-decoration: none;
+        }
+
+        .expert {
+            color: #26580F;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-section">
+            <div class="logo">Ceylon Harverst</div>
+            <h1>Wellcome back,</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="login-button">Log In</button>
+                <div class="register-text">
+                    If you haven't ceylon harvest account yet?
+                    <a href="/register.html" class="register-link">Register Now</a>
+                </div>
+                <div class="social-login">
+                    <button type="button" class="social-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                        Sign in with Google
+                    </button>
+                    <button type="button" class="social-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" alt="Facebook">
+                        Sign in with facebook
+                    </button>
+                </div>
+                <div class="expert-link">
+                    Continue as a <a href="#" class="expert">expert</a>
+                </div>
+            </form>
+        </div>
+        <div class="image-section">
+            <img src="https://images.unsplash.com/photo-1447175008436-054170c2e979?q=80&w=1000&auto=format&fit=crop" alt="Carrots">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = {
+                email: document.getElementById('username').value,
+                password: document.getElementById('password').value
+            };
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    alert('Login successful!');
+                    // Redirect to dashboard or home page
+                } else {
+                    alert(data.message || 'Login failed');
+                }
+            } catch (error) {
+                alert('An error occurred');
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html> 
