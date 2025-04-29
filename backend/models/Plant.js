@@ -1,24 +1,26 @@
 const mongoose = require('mongoose');
 
 const plantSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  disease: {
-    type: String,
-    required: true
-  },
   imageUrl: {
-    type: String
+    type: String,
+    required: true
   },
-  diagnosis: {
-    type: String
+  plantName: {
+    type: String,
+    required: true
   },
+  diseaseName: {
+    type: String,
+    required: true
+  },
+  solutions: [{
+    type: String,
+    required: true
+  }],
   createdAt: {
     type: Date,
     default: Date.now
   }
 });
 
-module.exports = mongoose.model('Plant', plantSchema); 
+module.exports = mongoose.model('Plant', plantSchema);
