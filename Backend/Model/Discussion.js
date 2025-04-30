@@ -21,5 +21,5 @@ const discussionSchema = new mongoose.Schema({
         type: String
     }]
 });
-//hfhfh
+
 module.exports = mongoose.model('Discussion', discussionSchema); 
