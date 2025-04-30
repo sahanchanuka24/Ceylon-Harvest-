@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-//Middleearea
+//Middleearess
 app.use("/",(req, res, next) => {
     res.send("Thidas,Sahan,Venusha,Hansika");
 })
