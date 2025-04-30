@@ -1,15 +1,18 @@
-import React from 'react';
-
-function User(props) {
-  return <p>Name: {props.name}, Age: {props.age}</p>;
-}
+import React, { useState, useEffect } from 'react';
 
 function App() {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds(prev => prev + 1);
+    }, 1000);
+    return () => clearInterval(interval); // Clean up
+  }, []);
+
   return (
     <div>
-      <h2>User Info</h2>
-      <User name="Nimal" age={25} />
-      <User name="Sunil" age={30} />
+      <h2>Timer: {seconds}s</h2>
     </div>
   );
 }
