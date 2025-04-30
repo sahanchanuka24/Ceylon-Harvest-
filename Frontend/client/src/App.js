@@ -72,7 +72,7 @@ function App() {
             
             {previewUrl && (
               <div className="preview-container">
-                <img src={previewUrl} alt="Preview" className="image-preview" />
+                <img src={previewUrl} alt="Preview" className="image-preview" />  
               </div>
             )}
             
