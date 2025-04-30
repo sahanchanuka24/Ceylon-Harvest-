@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get a single discussion
+// Get an single discussion
 router.get('/:id', async (req, res) => {
     try {
         const discussion = await Discussion.findById(req.params.id);
