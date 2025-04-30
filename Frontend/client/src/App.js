@@ -15,6 +15,7 @@ function App() {
           </ul>
         </nav>
       </header>
+<<<<<<< HEAD
       <main>
         <section id="home" className="hero">
           <h2>Welcome to Ceylon Harvest</h2>
@@ -36,6 +37,42 @@ function App() {
           <h2>Contact Us</h2>
           <p>Email: info@ceylonharvest.com</p>
           <p>Phone: (123) 456-7890</p>
+=======
+      <main className="app-main">
+        <section className="upload-section">
+          <form onSubmit={handleSubmit}>
+            <div className="file-input-container">
+              <label htmlFor="file-upload" className="custom-file-upload">
+                Choose Image
+              </label>
+              <input 
+                id="file-upload" 
+                type="file" 
+                accept="image/*" 
+                onChange={handleFileChange} 
+              />
+              {selectedFile && (
+                <span className="file-name">{selectedFile.name}</span>
+              )}
+            </div>
+            
+            {previewUrl && (
+              <div className="preview-container">
+                <img src={previewUrl} alt="Preview" className="image-preview" />  
+              </div>
+            )}
+            
+            <button 
+              type="submit" 
+              className="submit-button" 
+              disabled={isLoading || !selectedFile}
+            >
+              {isLoading ? 'Identifying...' : 'Identify Disease'}
+            </button>
+          </form>
+          
+          {error && <p className="error-message">{error}</p>}
+>>>>>>> 055d1bf8b8d6033c2477ba271dd9489bd5631fac
         </section>
       </main>
       <footer>
