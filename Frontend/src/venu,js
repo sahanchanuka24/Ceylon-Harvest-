@@ -1,24 +1,18 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [name, setName] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Hello, ${name}!`);
-  };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          value={name} 
-          onChange={(e) => setName(e.target.value)} 
-          placeholder="Enter your name"
-        />
-        <button type="submit">Submit</button>
-      </form>
+      {isLoggedIn ? (
+        <h2>Welcome back, User!</h2>
+      ) : (
+        <h2>Please log in.</h2>
+      )}
+      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+        {isLoggedIn ? 'Logout' : 'Login'}
+      </button>
     </div>
   );
 }
