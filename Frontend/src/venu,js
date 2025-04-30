@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [fruit, setFruit] = useState('');
+  const [showImage, setShowImage] = useState(false);
 
   return (
     <div>
-      <h2>Choose a fruit:</h2>
-      <select onChange={(e) => setFruit(e.target.value)}>
-        <option value="">--Select--</option>
-        <option value="Apple">Apple</option>
-        <option value="Mango">Mango</option>
-        <option value="Pineapple">Pineapple</option>
-      </select>
-      {fruit && <p>You selected: {fruit}</p>}
+      <button onClick={() => setShowImage(!showImage)}>
+        {showImage ? 'Hide Image' : 'Show Image'}
+      </button>
+      {showImage && (
+        <img 
+          src="https://via.placeholder.com/150"
+          alt="Placeholder"
+          style={{ marginTop: 10 }}
+        />
+      )}
     </div>
   );
 }
