@@ -10,18 +10,18 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
-ReactDOM.render(
+ReactDOM.render (
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
-/*<React.StrictMode>
+<React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </PersistGate>
-    </Provider> */
+    </Provider> 
   
 );
