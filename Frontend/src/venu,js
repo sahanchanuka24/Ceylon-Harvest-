@@ -1,13 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-function App() {
-  return (
-    <div>
-      <h1>Hello, React!</h1>
-      <p>This is a basic React component.</p>
-    </div>
-  );
-}
-
-export default App;
-//comment
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
