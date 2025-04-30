@@ -166,7 +166,7 @@ function Navbar() {
           transformOrigin: { horizontal: 'right', vertical: 'top' },
           anchorOrigin: { horizontal: 'right', vertical: 'bottom' }
         },
-        /*React.createElement(
+        React.createElement(
           MenuItem,
           { onClick: handleMenuClose },
           React.createElement(
@@ -190,5 +190,5 @@ function Navbar() {
     )
   );
 }
-*/
+
 export default Navbar;
