@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [fruit, setFruit] = useState('');
+  const options = ['JavaScript', 'React', 'Node.js'];
+  const [selected, setSelected] = useState([]);
+
+  const handleCheckbox = (value) => {
+    setSelected((prev) =>
+      prev.includes(value)
+        ? prev.filter((v) => v !== value)
+        : [...prev, value]
+    );
+  };
 
   return (
     <div>
-      <h2>Choose a fruit:</h2>
-      <select onChange={(e) => setFruit(e.target.value)}>
-        <option value="">--Select--</option>
-        <option value="Apple">Apple</option>
-        <option value="Mango">Mango</option>
-        <option value="Pineapple">Pineapple</option>
-      </select>
-      {fruit && <p>You selected: {fruit}</p>}
+      <h3>Select Skills:</h3>
+      {options.map((opt) => (
+        <div key={opt}>
+          <input
+            type="checkbox"
+            value={opt}
+            checked={selected.includes(opt)}
+            onChange={() => handleCheckbox(opt)}
+          />
+          {opt}
+        </div>
+      ))}
+      <p>Selected: {selected.join(', ')}</p>
     </div>
   );
 }
