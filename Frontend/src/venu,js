@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function App() {
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds(prev => prev + 1);
-    }, 1000);
-    return () => clearInterval(interval); // Clean up
-  }, []);
+  const [fruit, setFruit] = useState('');
 
   return (
     <div>
-      <h2>Timer: {seconds}s</h2>
+      <h2>Choose a fruit:</h2>
+      <select onChange={(e) => setFruit(e.target.value)}>
+        <option value="">--Select--</option>
+        <option value="Apple">Apple</option>
+        <option value="Mango">Mango</option>
+        <option value="Pineapple">Pineapple</option>
+      </select>
+      {fruit && <p>You selected: {fruit}</p>}
     </div>
   );
 }
