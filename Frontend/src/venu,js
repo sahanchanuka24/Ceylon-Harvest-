@@ -1,32 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+function CustomButton({ label, onClick }) {
+  return <button onClick={onClick}>{label}</button>;
+}
 
 function App() {
-  const options = ['JavaScript', 'React', 'Node.js'];
-  const [selected, setSelected] = useState([]);
-
-  const handleCheckbox = (value) => {
-    setSelected((prev) =>
-      prev.includes(value)
-        ? prev.filter((v) => v !== value)
-        : [...prev, value]
-    );
-  };
+  const sayHello = () => alert('Hello!');
+  const sayBye = () => alert('Goodbye!');
 
   return (
     <div>
-      <h3>Select Skills:</h3>
-      {options.map((opt) => (
-        <div key={opt}>
-          <input
-            type="checkbox"
-            value={opt}
-            checked={selected.includes(opt)}
-            onChange={() => handleCheckbox(opt)}
-          />
-          {opt}
-        </div>
-      ))}
-      <p>Selected: {selected.join(', ')}</p>
+      <CustomButton label="Say Hello" onClick={sayHello} />
+      <CustomButton label="Say Goodbye" onClick={sayBye} />
     </div>
   );
 }
