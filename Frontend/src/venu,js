@@ -1,20 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const fruits = ['Apple', 'Banana', 'Orange', 'Mango'];
 
   return (
     <div>
-      {isLoggedIn ? (
-        <h2>Welcome back, User!</h2>
-      ) : (
-        <h2>Please log in.</h2>
-      )}
-      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
-        {isLoggedIn ? 'Logout' : 'Login'}
-      </button>
-    </div>
-  );
-}
-
-export default App;
+      <h2>Fruit List:</h2>
+      <ul>
+        {fruits.map((fruit, index) => (
+          <li key={index}>{
