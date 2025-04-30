@@ -1,6 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+import React, { useState } from 'react';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>Counter: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+}
+
+export default App;
