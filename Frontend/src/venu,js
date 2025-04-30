@@ -1,29 +1,14 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [task, setTask] = useState('');
-  const [tasks, setTasks] = useState([]);
-
-  const addTask = () => {
-    if (task !== '') {
-      setTasks([...tasks, task]);
-      setTask('');
-    }
-  };
+  const [show, setShow] = useState(true);
 
   return (
     <div>
-      <h2>Todo List</h2>
-      <input 
-        type="text" 
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-        placeholder="Enter task" 
-      />
-      <button onClick={addTask}>Add</button>
-      <ul>
-        {tasks.map((t, i) => <li key={i}>{t}</li>)}
-      </ul>
+      <button onClick={() => setShow(!show)}>
+        {show ? 'Hide Text' : 'Show Text'}
+      </button>
+      {show && <p>This is some toggleable content!</p>}
     </div>
   );
 }
