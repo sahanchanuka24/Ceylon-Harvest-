@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
+9
 // Product Schema
 const productSchema = new mongoose.Schema({
     name: { 
