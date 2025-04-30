@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
-  const fruits = ['Apple', 'Banana', 'Orange', 'Mango'];
+  const [task, setTask] = useState('');
+  const [tasks, setTasks] = useState([]);
+
+  const addTask = () => {
+    if (task !== '') {
+      setTasks([...tasks, task]);
+      setTask('');
+    }
+  };
 
   return (
     <div>
-      <h2>Fruit List:</h2>
+      <h2>Todo List</h2>
+      <input 
+        type="text" 
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+        placeholder="Enter task" 
+      />
+      <button onClick={addTask}>Add</button>
       <ul>
-        {fruits.map((fruit, index) => (
-          <li key={index}>{
+        {tasks.map((t, i) => <li key={i}>{t}</li>)}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
