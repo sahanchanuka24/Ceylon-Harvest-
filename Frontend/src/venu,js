@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
+// Child component
+function Greeting(props) {
+  return <h2>Hello, {props.name}!</h2>;
+}
+
+// Parent component
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   return (
     <div>
-      {isLoggedIn ? (
-        <h2>Welcome back, User!</h2>
-      ) : (
-        <h2>Please log in.</h2>
-      )}
-      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
-        {isLoggedIn ? 'Logout' : 'Login'}
-      </button>
+      <Greeting name="Thidas" />
+      <Greeting name="Ayesha" />
+      <Greeting name="Kasun" />
     </div>
   );
 }
