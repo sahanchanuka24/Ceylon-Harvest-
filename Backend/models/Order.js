@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
         required: true
     },
     customerPhone: {
-        type: String,
+        type: String,1
         required: true
     },
     deliveryAddress: {
