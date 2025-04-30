@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+function User(props) {
+  return <p>Name: {props.name}, Age: {props.age}</p>;
+}
 
 function App() {
-  const [show, setShow] = useState(true);
-
   return (
     <div>
-      <button onClick={() => setShow(!show)}>
-        {show ? 'Hide Text' : 'Show Text'}
-      </button>
-      {show && <p>This is some toggleable content!</p>}
+      <h2>User Info</h2>
+      <User name="Nimal" age={25} />
+      <User name="Sunil" age={30} />
     </div>
   );
 }
