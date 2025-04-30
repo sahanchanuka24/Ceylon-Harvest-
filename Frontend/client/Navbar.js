@@ -22,77 +22,106 @@ import {
 function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleProfileClick = (event) => {
+  const handleProfileClick = function(event) {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClose = () => {
+  const handleMenuClose = function() {
     setAnchorEl(null);
   };
 
-  const handleLogout = () => {
+  const handleLogout = function() {
     localStorage.removeItem('token');
     handleMenuClose();
     window.location.href = '/';
   };
 
-  const handleCartClick = () => {
-    window.location.href = 'http://localhost:3004/cart';
+  const handleCartClick = function() {
+    window.location.href = '/cart';
   };
 
-  return (
-    <AppBar position="fixed" color="transparent" sx={{ backdropFilter: 'blur(8px)' }}>
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: '#26580F' }}>
-          Ceylon Harvest
-        </Typography>
-        <Button
-          component={Link}
-          to="/home"
-          sx={{ color: '#26580F' }}
-        >
-          Home
-        </Button>
-        <Button
-          component={Link}
-          to="/discussions"
-          sx={{ color: '#26580F' }}
-        >
-          Discussions
-        </Button>
-        <Button
-          component={Link}
-          to="/contact"
-          sx={{ color: '#26580F' }}
-        >
-          Contact
-        </Button>
-        <Button
-          component={Link}
-          to="/about"
-          sx={{ color: '#26580F' }}
-        >
-          About Us
-        </Button>
-        <IconButton
-          onClick={handleCartClick}
-          sx={{ color: '#26580F', ml: 1 }}
-        >
-          <Badge badgeContent={0} color="error">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
-        <IconButton
-          onClick={handleProfileClick}
-          sx={{ ml: 2 }}
-        >
-          <Avatar />
-        </IconButton>
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleMenuClose}
-          PaperProps={{
+  return React.createElement(
+    AppBar,
+    {
+      position: 'fixed',
+      color: 'transparent',
+      sx: { backdropFilter: 'blur(8px)' }
+    },
+    React.createElement(
+      Toolbar,
+      null,
+      React.createElement(
+        Typography,
+        {
+          variant: 'h6',
+          component: 'div',
+          sx: { flexGrow: 1, color: '#26580F' }
+        },
+        'Ceylon Harvest'
+      ),
+      React.createElement(
+        Button,
+        {
+          component: Link,
+          to: '/home',
+          sx: { color: '#26580F' }
+        },
+        'Home'
+      ),
+      React.createElement(
+        Button,
+        {
+          component: Link,
+          to: '/discussions',
+          sx: { color: '#26580F' }
+        },
+        'Discussions'
+      ),
+      React.createElement(
+        Button,
+        {
+          component: Link,
+          to: '/contact',
+          sx: { color: '#26580F' }
+        },
+        'Contact'
+      ),
+      React.createElement(
+        Button,
+        {
+          component: Link,
+          to: '/about',
+          sx: { color: '#26580F' }
+        },
+        'About Us'
+      ),
+      React.createElement(
+        IconButton,
+        {
+          onClick: handleCartClick,
+          sx: { color: '#26580F', ml: 1 }
+        },
+        React.createElement(
+          Badge,
+          { badgeContent: 0, color: 'error' },
+          React.createElement(ShoppingCartIcon, null)
+        )
+      ),
+      React.createElement(
+        IconButton,
+        {
+          onClick: handleProfileClick,
+          sx: { ml: 2 }
+        },
+        React.createElement(Avatar, null)
+      ),
+      React.createElement(
+        Menu,
+        {
+          anchorEl: anchorEl,
+          open: Boolean(anchorEl),
+          onClose: handleMenuClose,
+          PaperProps: {
             elevation: 0,
             sx: {
               overflow: 'visible',
@@ -117,26 +146,33 @@ function Navbar() {
                 zIndex: 0,
               },
             },
-          }}
-          transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-        >
-          <MenuItem onClick={handleMenuClose}>
-            <ListItemIcon>
-              <PersonIcon fontSize="small" sx={{ color: '#26580F' }} />
-            </ListItemIcon>
-            <ListItemText>Profile</ListItemText>
-          </MenuItem>
-          <MenuItem onClick={handleLogout}>
-            <ListItemIcon>
-              <LogoutIcon fontSize="small" sx={{ color: '#26580F' }} />
-            </ListItemIcon>
-            <ListItemText>Logout</ListItemText>
-          </MenuItem>
-        </Menu>
-      </Toolbar>
-    </AppBar>
+          },
+          transformOrigin: { horizontal: 'right', vertical: 'top' },
+          anchorOrigin: { horizontal: 'right', vertical: 'bottom' }
+        },
+        React.createElement(
+          MenuItem,
+          { onClick: handleMenuClose },
+          React.createElement(
+            ListItemIcon,
+            null,
+            React.createElement(PersonIcon, { fontSize: 'small', sx: { color: '#26580F' } })
+          ),
+          React.createElement(ListItemText, null, 'Profile')
+        ),
+        React.createElement(
+          MenuItem,
+          { onClick: handleLogout },
+          React.createElement(
+            ListItemIcon,
+            null,
+            React.createElement(LogoutIcon, { fontSize: 'small', sx: { color: '#26580F' } })
+          ),
+          React.createElement(ListItemText, null, 'Logout')
+        )
+      )
+    )
   );
 }
 
-export default Navbar; 
+export default Navbar;
