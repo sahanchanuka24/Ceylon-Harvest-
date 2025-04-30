@@ -1,19 +1,11 @@
 import React from 'react';
 
-// Child component
-function Greeting(props) {
-  return <h2>Hello, {props.name}!</h2>;
-}
-
-// Parent component
 function App() {
+  const fruits = ['Apple', 'Banana', 'Orange', 'Mango'];
+
   return (
     <div>
-      <Greeting name="Thidas" />
-      <Greeting name="Ayesha" />
-      <Greeting name="Kasun" />
-    </div>
-  );
-}
-
-export default App;
+      <h2>Fruit List:</h2>
+      <ul>
+        {fruits.map((fruit, index) => (
+          <li key={index}>{
