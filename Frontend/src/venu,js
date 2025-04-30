@@ -1,20 +1,32 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [showImage, setShowImage] = useState(false);
+  const options = ['JavaScript', 'React', 'Node.js'];
+  const [selected, setSelected] = useState([]);
+
+  const handleCheckbox = (value) => {
+    setSelected((prev) =>
+      prev.includes(value)
+        ? prev.filter((v) => v !== value)
+        : [...prev, value]
+    );
+  };
 
   return (
     <div>
-      <button onClick={() => setShowImage(!showImage)}>
-        {showImage ? 'Hide Image' : 'Show Image'}
-      </button>
-      {showImage && (
-        <img 
-          src="https://via.placeholder.com/150"
-          alt="Placeholder"
-          style={{ marginTop: 10 }}
-        />
-      )}
+      <h3>Select Skills:</h3>
+      {options.map((opt) => (
+        <div key={opt}>
+          <input
+            type="checkbox"
+            value={opt}
+            checked={selected.includes(opt)}
+            onChange={() => handleCheckbox(opt)}
+          />
+          {opt}
+        </div>
+      ))}
+      <p>Selected: {selected.join(', ')}</p>
     </div>
   );
 }
