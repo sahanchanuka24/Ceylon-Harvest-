@@ -6,10 +6,14 @@ Ceylon Harvest is an innovative agricultural platform designed to empower farmer
 ## 🔧 Key Features:
 
    User Management: A secure system for farmers to register, log in, and manage their profiles, ensuring personalized access to the platform’s tools and resources.
+   
    Discussion Forum: A community space where farmers can engage in discussions, share knowledge, ask questions, and collaborate with peers to solve agricultural challenges.
+   
    Weather Alerts: Real-time weather updates and alerts to help farmers plan their activities, protect crops from adverse weather conditions, and optimize farming schedules.
+   
    Plant Disease Detection Tool: An advanced tool that allows farmers to upload images of crops for automated disease detection, providing insights into plant health and actionable       
                                  solutions to mitigate diseases.
+   
    Agri Shop: An integrated marketplace where farmers can browse and purchase agricultural products, tools, seeds, and fertilizers directly through the platform.
 
 
