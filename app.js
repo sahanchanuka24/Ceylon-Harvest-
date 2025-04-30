@@ -8,7 +8,7 @@ const app = express();
 //Middleeare
 app.use("/",(req, res, next) => {
     res.send("Thidas,Sahan,Venusha,Hansika");
-})//dde
+})
 
 mongoose.connect("mongodb+srv://admin:2npps70yajmpiK2q@cluster0.gf62g.mongodb.net/")
 .then(()=> console.log("Connected to MongoDB"))
