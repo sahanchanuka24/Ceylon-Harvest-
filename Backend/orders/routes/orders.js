@@ -5,7 +5,7 @@ const Cart = require('../models/Cart');
 const Product = require('../../models/Product');
 
 // Customer Routes
-// Get customer's orders
+// Get customer's orders99
 router.get('/customer/:email', async (req, res) => {
     try {
         const orders = await Order.find({ customerEmail: req.params.email })
